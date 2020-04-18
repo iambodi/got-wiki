@@ -1,0 +1,17 @@
+.container {
+  border: 2px solid black;
+  border-left: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.lineChars {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
+
+.lineChars div {
+  padding: 5px;
+  border-left: 2px solid black;
+}

@@ -1,0 +1,17 @@
+.containerBooks {
+  border: 2px solid black;
+  border-left: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.lineBooks {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
+
+.lineBooks div {
+  padding: 5px;
+  border-left: 2px solid black;
+}
