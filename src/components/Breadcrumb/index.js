@@ -3,8 +3,8 @@ import './breadcrumb.css';
 
 function Breadcrumb(props) {
   return (
-    <div>
-      <p>{props.currentPage}</p>
+    <div className="breadcrumb">
+      <h3>{props.currentPage}</h3>
     </div>
   );
 }

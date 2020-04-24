@@ -16,17 +16,21 @@ class Home extends React.Component {
   displayBooks() {
     if (this.state.isLoaded === true && this.state.books.length !== 0) {
       return this.state.books.map((book, index) => {
+        let date = book.released.split('T')[0].split('-');
+        let urlToBook = book.name.replace(/\s/g, '_');
+
         return (
           <div className="lineBooks" key={index}>
-            <div>{book.name}</div>
-            <div>{book.released.split('T')[0]}</div>
-            <div>{book.numberOfPages}</div>
+            <div className="">{book.name}</div>
+            <div className="">{`${date[2]}-${date[1]}-${date[0]}`}</div>
+            <div className="">{book.numberOfPages}</div>
             <div>
               <Link
                 to={{
-                  pathname: '/book',
+                  pathname: `/book/${urlToBook}`,
                   state: book,
                 }}
+                className="booksDetails"
               >
                 Details
               </Link>
@@ -37,32 +41,37 @@ class Home extends React.Component {
     }
   }
 
-  componentDidMount() {
-    var myInit = {
+  async componentDidMount() {
+    let myInit = {
       mode: 'cors',
     };
 
-    fetch('https://anapioficeandfire.com/api/books', myInit)
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          this.setState({ isLoaded: true, books: result });
-        },
-        (error) => {
-          this.setState({ isLoaded: true, error });
-        }
+    try {
+      const res = await fetch(
+        'https://anapioficeandfire.com/api/books',
+        myInit
       );
+      if (!res.ok) {
+        throw Error(res.statusText);
+      }
+      const books = await res.json();
+      this.setState({
+        isLoaded: true,
+        books: books,
+      });
+    } catch (error) {
+      this.setState({ isLoaded: true, error });
+      console.error(error);
+    }
   }
 
   render() {
-    console.log(this.state.books);
-
     return (
       <div>
         <Breadcrumb currentPage="Books" />
 
         <div className="containerBooks">
-          <div className="lineBooks">
+          <div className="lineBooks firstLineBooks">
             <div>Book Name</div>
             <div>Released Date</div>
             <div>Number Of Pages</div>

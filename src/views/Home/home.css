@@ -3,15 +3,43 @@
   border-left: none;
   display: flex;
   flex-direction: column;
+  width: 90%;
+  margin: auto;
+  min-width: 310px;
 }
 
 .lineBooks {
   display: flex;
   flex-wrap: nowrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  text-align: left;
 }
 
 .lineBooks div {
   padding: 5px;
   border-left: 2px solid black;
+  width: 30%;
+}
+
+.lineBooks div:last-child {
+  width: 10%;
+  overflow-x: hidden;
+}
+
+.firstLineBooks div {
+  background-color: #c8c8c8;
+}
+
+.lineBooks:nth-child(2n) {
+  background-color: #e8e8e8;
+}
+
+.booksDetails {
+  text-decoration: none;
+  color: #6f93c3;
+}
+
+.booksDetails:visited {
+  text-decoration: none;
+  color: SlateBlue;
 }

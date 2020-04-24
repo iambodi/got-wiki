@@ -1,0 +1,22 @@
+.containerChar {
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: auto;
+  min-width: 310px;
+  text-align: left;
+}
+
+.display-linebreak {
+  white-space: pre-line;
+}
+
+.characterDetails {
+  list-style-type: none;
+  padding-left: 1vw;
+}
+
+.charName {
+  text-align: center;
+}

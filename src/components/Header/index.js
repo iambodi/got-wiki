@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 function Header() {
   return (
     <div>
-      <Link to="/">
+      <Link to="/" className="header">
         <h1>Games of Thrones Wiki</h1>
       </Link>
     </div>
